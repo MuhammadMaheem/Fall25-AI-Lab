@@ -50,53 +50,31 @@
 # • Model-Based Reflex Agent
 # • This agent not only checks the current temperature but also remembers the previous
 # action to avoid turning the heater on or off unnecessarily
+# use dict  to see if the same temperature is repeated , and if its repeated the prine "No nothing" and only 1 temputature in
 
 
-
-
-
-class TemperatueSensor:
-    def __init__(self, normal_temp):
-        self.normal_temp = normal_temp
-        self.previous_action = None 
-    def get(self, current_temperature):
-        return current_temperature
-
-    def act(self, current_temperature):
-        if current_temperature < self.normal_temp:
-            action = "Turn on heater"
-        elif current_temperature > self.normal_temp:
-            action = "Turn off heater"
+def temperature_agent(current_temperature, base_temp, memory):
+    if current_temperature in memory:
+        return "No nothing"
+    else:
+        
+        memory[current_temperature] = True
+        if current_temperature < base_temp:
+            return "Turn on heater"
         else:
-            action = "Do nothing"
-
-        if action == self.previous_action:
-            action = "Do nothing"
-
-        self.previous_action = action
-        return action
-
+            return "Turn off heater"
 rooms = {
-    "Living Room": 18,
-    "Bedroom": 22,
-    "Kitchen": 20,
-    "Bathroom": 24
+    "Living Room": 12,
+    "Bedroom": 8,
+    "Kitchen": 32,
+    "Bathroom": 12,
+    "Bathroo2m": 23
 }
-normal_temp = 22
-agent = TemperatueSensor(normal_temp)
-
+base_temp = 32
+memory = {}
 for room, temperature in rooms.items():
-    action = agent.act(temperature)
-    print(f"{room}: Current temperature = {temperature}°C. {action}.")
-
-
-
-
-
-
-
-
-
+    action = temperature_agent(temperature, base_temp, memory)
+    print(f"{room}: {temperature}... {action}.")
 
 
 
