@@ -42,52 +42,52 @@ else:
 
 
 
-# 2. Write a python program to remove punctuations from the given string?
+# # 2. Write a python program to remove punctuations from the given string?
 
 
 
-string1 = "Kuch,Bhi:Kuch?Bhi!"
+# string1 = "Kuch,Bhi:Kuch?Bhi!"
 
-not_allowed = set("~`!@#$%^&*()_+-={}[]|\:;'\"<>?/,.")
-
-
-for i in string1:
-    if i in not_allowed:
-        string1 = string1.replace(i , " ")
-    print(string1)
+# not_allowed = set("~`!@#$%^&*()_+-={}[]|\:;'\"<>?/,.")
 
 
-
-
+# for i in string1:
+#     if i in not_allowed:
+#         string1 = string1.replace(i , " ")
+#     print(string1)
 
 
 
 
 
 
-# 3. Write a python program to sort the sentence in alphabetical order? 
+
+
+
+
+# # 3. Write a python program to sort the sentence in alphabetical order? 
 
 
 
 
 
 
-string1 = "I am Rasikh"
-x = [ord(ch) for ch in string1]
+# string1 = "I am Rasikh"
+# x = [ord(ch) for ch in string1]
 
-sorted_list = []
-for val in x:  
-    count = 0
-    while count < len(sorted_list) and sorted_list[count] <val:
-        count +=1
-        print(count)
+# sorted_list = []
+# for val in x:  
+#     count = 0
+#     while count < len(sorted_list) and sorted_list[count] <val:
+#         count +=1
+#         print(count)
 
-    sorted_list.insert(count,val)
-    print(sorted_list)
+#     sorted_list.insert(count,val)
+#     print(sorted_list)
 
 
-assi_code = [chr(ch) for (ch) in sorted_list]
-print(assi_code)
+# assi_code = [chr(ch) for (ch) in sorted_list]
+# print(assi_code)
 
 
 
