@@ -18,21 +18,16 @@ class PathFinder:
         return heuristic_table.get(node, float('inf'))
 
     def find_shortest_path(self, start, target):
-        # Priority tracking: use sets for open/closed
         frontier = {start}
         explored = set()
 
-        # Cost from start to each node
         cost_so_far = {start: 0}
-        # To rebuild path
         previous_node = {start: None}
 
         while frontier:
-            # Select node with lowest f = g + h
             current = min(frontier, key=lambda n: cost_so_far[n] + self.estimate_to_goal(n, target))
 
             if current == target:
-                # Reconstruct path
                 path = []
                 step = current
                 while step is not None:
